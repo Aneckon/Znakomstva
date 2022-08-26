@@ -43,12 +43,12 @@ export const Header = () => {
                 {headerIcon.map((item) => (
                   <li key={item.id}>
                     <NavLink to={item.link}>
-                      <img className='header__content-item__icon' src={item.icon} alt="" />
+                      <img className="header__content-item__icon" src={item.icon} alt="" />
                     </NavLink>
                   </li>
                 ))}
                 <li className="header__content-user">
-                  <NavLink to="/">
+                  <NavLink to="/profile">
                     <img src="/assets/header/user.png" alt="" />
                     <p>Иван Иванов</p>
                   </NavLink>
@@ -56,11 +56,10 @@ export const Header = () => {
               </ul>
               <ul className="header__content-list__menu">
                 <li onClick={() => setMenu(!menu)}>
-                  {menu ? (
-                    <img src="/assets/header/menu-remove.svg" alt="" />
-                  ) : (
-                    <img src="/assets/header/menu.svg" alt="" />
-                  )}
+                  <img
+                    src={menu ? '/assets/header/menu-remove.svg' : '/assets/header/menu.svg'}
+                    alt=""
+                  />
                 </li>
               </ul>
             </nav>

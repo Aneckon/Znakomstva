@@ -31,7 +31,7 @@
   }
 
   &:hover::before {
-    background: linear-gradient(0deg, #ee0979 0%, #ff6a00 100%);
+    background: linear-gradient(0deg, #ee0979 0%, #ff6a00 100%);-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   }
 
   @media (max-width: 1400px) {
@@ -56,5 +56,30 @@
   @media (max-width: 565px){
     width: 172px;
     height: 46px;
+  }
+}
+.button {
+  max-width: 250px;
+  width: 100%;
+  margin-left: auto;
+  height: 70px;
+  background: linear-gradient(90deg, #ee0979 0%, #ff6a00 100%);
+  box-shadow: 0px 20px 30px rgba(179, 34, 31, 0.2);
+  border-radius: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+
+  @media (max-width: 1200px) {
+    width: 202px;
+    height: 56px;
+  }
+
+  &:hover {
+    background: linear-gradient(90deg, #ffc700 0%, #ff005c 100%);
   }
 }
