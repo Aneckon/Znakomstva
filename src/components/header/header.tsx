@@ -20,7 +20,12 @@ export const Header = () => {
           : 'header'
       }>
       <div className="container">
-        <div className="header__content">
+        <div
+          className={
+            location.pathname !== locationRegister && location.pathname !== locationLogin
+              ? 'header__content'
+              : 'header__content header__content-text'
+          }>
           <div className="header__logo">
             <NavLink to="/">
               <img src="/assets/logo.svg" alt="" />

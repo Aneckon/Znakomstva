@@ -7,11 +7,12 @@ interface InputProps {
   value: string;
   onChange: (e: any) => void;
   type: string;
+  className: string;
 }
 
-export const Input: FC<InputProps> = ({ value, onChange, placeholder, type }) => {
+export const Input: FC<InputProps> = ({ className, value, onChange, placeholder, type }) => {
   return (
-    <div className="input">
+    <div className={className}>
       <input type={type} placeholder={placeholder} value={value} onChange={onChange} />
     </div>
   );

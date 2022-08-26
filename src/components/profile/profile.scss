@@ -1,4 +1,10 @@
 .profile {
+  margin-top: 30px;
+  width: 100%;
+  
+  @media (max-width: 824px){
+    margin-top: 20px;
+  }
   &__wrraper {
     display: flex;
     align-items: start;

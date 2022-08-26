@@ -75,6 +75,37 @@
   font-size: 16px;
   line-height: 150%;
 
+  &__auth {
+    max-width: 380px;
+    width: 100%;
+    margin: 0 auto;
+    height: 70px;
+    background: linear-gradient(90deg, #ee0979 0%, #ff6a00 100%);
+    box-shadow: 0px 20px 30px rgba(179, 34, 31, 0.2);
+    border-radius: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+
+    &:hover {
+      background: linear-gradient(90deg, #ffc700 0%, #ff005c 100%);
+    }
+
+    @media (max-width: 1200px) {
+      width: 202px;
+      height: 56px;
+    }
+    @media (max-width: 425px) {
+      max-width: 100%;
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+
   @media (max-width: 1200px) {
     width: 202px;
     height: 56px;
