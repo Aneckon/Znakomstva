@@ -71,49 +71,10 @@
         }
       }
     }
-    &__data {
-      max-width: 380px;
-      width: 100%;
+    &__checkbox {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-
-      @media (max-width: 1200px) {
-        max-width: 320px;
-      }
-      @media (max-width: 1024px) {
-        max-width: 100%;
-      }
-
-      .input {
-        &:nth-child(2) {
-          max-width: 100%;
-        }
-      }
-      .input {
-        max-width: 100px;
-        margin-right: 10px;
-
-        @media (max-width: 1200px) {
-          max-width: 80px;
-        }
-        @media (max-width: 1024px) {
-          max-width: 100px;
-        }
-        @media (max-width: 720px) {
-          max-width: 80px;
-        }
-        @media (max-width: 565px) {
-          max-width: 70px;
-        }
-        @media (max-width: 495px) {
-          max-width: 100px;
-        }
-
-        &:last-child {
-          margin-right: 0;
-        }
-      }
+      justify-content: center;
     }
   }
 }

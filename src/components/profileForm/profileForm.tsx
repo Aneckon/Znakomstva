@@ -15,15 +15,11 @@ export const ProfileForm = () => {
         </div>
         <div className="profile__content-form__items">
           <p>Дата народження</p>
-          <div className="profile__content-form__data">
-            <Input type="text" placeholder="День" value="" onChange={() => console.log()} />
-            <Input type="text" placeholder="Місяц" value="" onChange={() => console.log()} />
-            <Input type="text" placeholder="Рік" value="" onChange={() => console.log()} />
-          </div>
+          <Input type="date" placeholder="Місяц" value="" onChange={() => console.log()} />
         </div>
         <div className="profile__content-form__items">
           <p>Стать</p>
-          <div className="profile__content-form__data">
+          <div className="profile__content-form__checkbox">
             <Input
               type="checkbox"
               placeholder="Мета знайомства"
