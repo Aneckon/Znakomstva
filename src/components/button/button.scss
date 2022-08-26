@@ -31,7 +31,8 @@
   }
 
   &:hover::before {
-    background: linear-gradient(0deg, #ee0979 0%, #ff6a00 100%);-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    background: linear-gradient(0deg, #ee0979 0%, #ff6a00 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   }
 
   @media (max-width: 1400px) {
@@ -53,7 +54,7 @@
     height: 40px;
     font-size: 14px;
   }
-  @media (max-width: 565px){
+  @media (max-width: 565px) {
     width: 172px;
     height: 46px;
   }
@@ -77,6 +78,11 @@
   @media (max-width: 1200px) {
     width: 202px;
     height: 56px;
+  }
+  @media (max-width: 425px) {
+    max-width: 100%;
+    width: 100%;
+    margin-left: 0;
   }
 
   &:hover {
