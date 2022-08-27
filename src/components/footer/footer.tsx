@@ -11,19 +11,19 @@ export const Footer = () => {
           <nav className="footer__nav">
             <ul>
               <li className="footer__list-item">
-                <NavLink to="/">Про нас</NavLink>
+                <NavLink to="/about">Про нас</NavLink>
               </li>
               <li className="footer__list-item">
-                <NavLink to="/">Підтримка</NavLink>
+                <NavLink to="/support">Підтримка</NavLink>
               </li>
               <li className="footer__list-item">
-                <NavLink to="/">Поради</NavLink>
+                <NavLink to="/advices">Поради</NavLink>
               </li>
               <li className="footer__list-item">
-                <NavLink to="/">Контакти</NavLink>
+                <NavLink to="/contacts">Контакти</NavLink>
               </li>
               <li className="footer__list-item">
-                <NavLink to="/">Розробники</NavLink>
+                <NavLink to="/developers">Розробники</NavLink>
               </li>
             </ul>
           </nav>

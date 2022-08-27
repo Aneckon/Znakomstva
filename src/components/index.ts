@@ -1,4 +1,6 @@
 export * from './login';
+export * from './advices';
+export * from './aboutUs';
 
 export * from './header';
 export * from './button';
@@ -12,7 +14,7 @@ export * from './profilePhoto';
 export * from './profileForm';
 
 export * from './main';
-export * from './swiper'
-export * from './topDating'
+export * from './swiper';
+export * from './topDating';
 
 export * from './mokApi';

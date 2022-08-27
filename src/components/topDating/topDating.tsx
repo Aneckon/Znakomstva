@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { SwiperSlide } from 'swiper/react';
 
-import { Card, MainSwiper, SwiperMain } from '..';
+import { Card, mainSwiper, SwiperMain } from '..';
 
 import './topDating.scss';
 
@@ -14,7 +14,7 @@ export const TopDating: FC<TopDatingProps> = ({title}) => {
     <div className="topDating">
       <h2>{title}</h2>
       <SwiperMain>
-        {MainSwiper.map((item: any) => (
+        {mainSwiper.map((item: any) => (
           <SwiperSlide key={item.id}>
             <Card />
           </SwiperSlide>
