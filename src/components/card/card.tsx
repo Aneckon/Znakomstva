@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '..';
 
 import './card.scss';
 
-export const Card = () => {
+interface CardProps {
+  name?: string;
+  age?: number;
+  img?: string;
+}
+
+export const Card: FC<CardProps> = ({ name, age, img }) => {
   const navigate = useNavigate();
 
   const onNavigateUser = (name: string) => {
@@ -13,10 +19,10 @@ export const Card = () => {
 
   return (
     <div className="card" onClick={() => onNavigateUser('віктор')}>
-      <img src="/assets/card/photo.png" alt="" />
+      <img src={img?.length ? img : '/assets/card/photo.png'} alt="" />
       <div className="card__content">
         <p>
-          Виктор <span>22</span>
+          {name?.length ? name : 'Віктор'} <span>{name?.length ? age : 22}</span>
         </p>
         <div className="card__content-location">
           <img src="/assets/card/ukraine.svg" alt="" />

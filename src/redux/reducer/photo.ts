@@ -6,11 +6,11 @@ const photoSlice = createSlice({
     photoList: [],
   },
   reducers: {
-    setPhoto: (state: any, action: any) => {
+    addPhoto: (state: any, action: any) => {
       state.photoList.push(action.payload);
     },
   },
 });
 
-export const { setPhoto } = photoSlice.actions;
+export const { addPhoto } = photoSlice.actions;
 export default photoSlice.reducer;

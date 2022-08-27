@@ -9,7 +9,7 @@ export const UserProfile = () => {
     <div className="userProfile">
       <div className="container">
         <div className="userProfile__wrraper">
-          <ProfilePhoto />
+          <ProfilePhoto userName="Віктор" userAre="22" />
           <div className="userProfile__content">
             <div className="userProfile__content-title">
               <h2>

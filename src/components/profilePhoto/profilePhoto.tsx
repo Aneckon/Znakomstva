@@ -1,21 +1,37 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 
 import { profilePhoto } from '..';
 
-import { setPhoto } from '../../redux/reducer/photo';
+import { addFavorite } from '../../redux/reducer/favorite';
+import { addPhoto } from '../../redux/reducer/photo';
 
 import './profilePhoto.scss';
 
-export const ProfilePhoto = () => {
+interface ProfilePhotoProps {
+  userName?: string;
+  userAre?: string;
+}
+
+export const ProfilePhoto: FC<ProfilePhotoProps> = ({ userName, userAre }) => {
   const location = useLocation();
   const dispatch = useDispatch();
   const photoImages = useSelector((state: any) => state.photoReducer.photoList);
+  const favoriteImages = useSelector((state: any) => state.favoriteReducer.favoriteList);
+  const favoriteItem = favoriteImages.some((item: any) => item.userName === userName);
 
   const onChangeAddPhoto = (e: any, id: number) => {
     if (e.target.files.length) {
-      dispatch(setPhoto({ id: id, img: URL.createObjectURL(e.target.files[0]) }));
+      dispatch(addPhoto({ id: id, img: URL.createObjectURL(e.target.files[0]) }));
+    }
+  };
+
+  const onClickAddFavorite = (img: string, id: number) => {
+    if (!favoriteItem) {
+      dispatch(addFavorite({ img, userAre, userName, id }));
+      toast.success('Успішно добавив', { theme: 'dark' });
     }
   };
 
@@ -43,7 +59,10 @@ export const ProfilePhoto = () => {
         ))
       ) : photoImages.length > 0 ? (
         photoImages.map((item: any) => (
-          <div key={item.id} className="profile__photo-item">
+          <div
+            key={item.id}
+            className="profile__photo-item"
+            onClick={() => onClickAddFavorite(item.img, item.id)}>
             <img src={item.img} alt="" />
             <div className="profile__photo-item__favorite">
               <img src="/assets/profile/favorite.svg" alt="" />
@@ -56,6 +75,17 @@ export const ProfilePhoto = () => {
       ) : (
         <div className="profile__photo-item">не має фотографії</div>
       )}
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 };
