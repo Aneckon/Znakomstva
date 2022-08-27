@@ -45,6 +45,12 @@ export const ProfilePhoto = () => {
         photoImages.map((item: any) => (
           <div key={item.id} className="profile__photo-item">
             <img src={item.img} alt="" />
+            <div className="profile__photo-item__favorite">
+              <img src="/assets/profile/favorite.svg" alt="" />
+            </div>
+            <div className="profile__photo-item__selected">
+              <img src="/assets/profile/selected.svg" alt="" />
+            </div>
           </div>
         ))
       ) : (
