@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 import {
   Login,
@@ -12,6 +12,7 @@ import {
   NetworkError,
   UserProfile,
   Favorite,
+  Register,
 } from './components';
 
 export const App = () => {
@@ -19,8 +20,10 @@ export const App = () => {
     <div className="app">
       <Header />
       <Routes>
-        <Route path="/login" element={<Login />} />
         <Route path="/" element={<Main />} />
+
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
         <Route path="/favorites" element={<Favorite />} />
 

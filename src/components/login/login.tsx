@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Input, Button } from '..';
 
 import './login.scss';
 
 export const Login = () => {
+  const [passwordShow, setPasswordShow] = useState(true);
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const onClickSubmit = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    console.log(email, password);
+  };
+
   return (
     <div className="login">
       <div className="container">
@@ -16,25 +26,34 @@ export const Login = () => {
               необходимость системы обучения кадров, соответствующей насущным потребностям.
             </p>
           </div>
-          <form className="login__content-from">
+          <form onSubmit={onClickSubmit} className="login__content-from">
             <div className="login__content-from__input">
               <Input
                 className="input input__auth"
-                placeholder="Введите электронную почту"
-                value={''}
-                onChange={(e) => e.target.value}
-                type={''}
-              />
+                placeholder="Введіть електронну пошту"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                type={'text'}>
+                <img src="/assets/auth/message.svg" alt="" />
+              </Input>
             </div>
             <div className="login__content-from__input">
               <Input
                 className="input input__auth"
-                placeholder="Введите пароль"
-                value={''}
-                onChange={(e) => e.target.value}
-                type={''}
-              />
-              <div className="login__content-from__show"></div>
+                placeholder="Введіть пароль"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                type={passwordShow ? 'password' : 'text'}>
+                <img src="/assets/auth/password.svg" alt="" />
+                <div
+                  onClick={() => setPasswordShow(!passwordShow)}
+                  className="login__content-from__show">
+                  <img
+                    src={passwordShow ? '/assets/auth/eye.svg' : '/assets/auth/eye-remove.svg'}
+                    alt=""
+                  />
+                </div>
+              </Input>
             </div>
             <Button className="button__auth">Войти</Button>
           </form>

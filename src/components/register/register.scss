@@ -1,0 +1,292 @@
+.register {
+  width: 100%;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 525px;
+    height: 1090px;
+    background: url('../../../public/assets/auth/decor3.svg') no-repeat center;
+    background-size: cover;
+    z-index: -1;
+    @media (max-width: 1920px) {
+      width: 385px;
+      height: 790px;
+    }
+    @media (max-width: 1500px) {
+      width: 325px;
+      height: 620px;
+    }
+    @media (max-width: 1300px) {
+      width: 325px;
+      height: 700px;
+    }
+    @media (max-width: 1100px) {
+      width: 225px;
+      height: 500px;
+    }
+    @media (max-width: 992px) {
+      top: 0;
+      bottom: auto;
+      width: 175px;
+      height: 700px;
+      background-size: 100% 100%;
+    }
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 338px;
+    height: 870px;
+    background: url('../../../public/assets/auth/decor4.svg') no-repeat center;
+    background-size: cover;
+    z-index: -1;
+    @media (max-width: 1500px) {
+      width: 318px;
+      height: 827px;
+    }
+    @media (max-width: 1300px) {
+      width: 268px;
+      height: 697px;
+    }
+    @media (max-width: 1100px) {
+      width: 208px;
+      height: 537px;
+    }
+    @media (max-width: 992px) {
+      bottom: 0;
+      width: 185px;
+      height: 417px;
+      background-size: 100% 100%;
+    }
+  }
+
+  &__content {
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+    height: 100%;
+    text-align: center;
+
+    &-title {
+      margin-bottom: 50px;
+      @media (max-width: 525px) {
+        margin-bottom: 20px;
+      }
+      h2 {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 36px;
+        line-height: 150%;
+        text-align: center;
+        color: #ffffff;
+        margin-bottom: 10px;
+
+        @media (max-width: 720px) {
+          font-size: 34px;
+        }
+        @media (max-width: 565px) {
+          font-size: 30px;
+          line-height: 100%;
+        }
+        @media (max-width: 465px) {
+          font-size: 28px;
+        }
+      }
+      p {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+        color: #ffffff;
+
+        @media (max-width: 990px) {
+          font-size: 14px;
+        }
+      }
+    }
+    &-from__input {
+      p {
+        padding-left: 40px;
+        padding-bottom: 5px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 150%;
+        text-align: left;
+        color: #c1c1c1;
+      }
+    }
+    &-checkbox {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      label {
+        cursor: pointer;
+        width: 100%;
+        height: 70px;
+        margin-bottom: 10px;
+        position: relative;
+
+        &:first-child {
+          input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+          }
+          span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 70px;
+            max-width: 100%;
+            width: 195px;
+            box-shadow: 0px 20px 30px rgba(179, 34, 31, 0.1);
+            border-radius: 500px;
+            display: inline-block;
+
+            @media (max-width: 525px) {
+              max-width: 160px;
+              width: 100%;
+            }
+
+            &::before {
+              content: '';
+              position: absolute;
+              inset: 0;
+              border-radius: 50px;
+              padding: 2px;
+              background: linear-gradient(90deg, #0575e6 0%, #021b79 100%);
+              -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+              -webkit-mask-composite: xor;
+              mask-composite: exclude;
+              pointer-events: none;
+            }
+
+            &.active {
+              background: linear-gradient(90deg, #0575e6 0%, #021b79 100%);
+            }
+
+            &::after {
+              content: '';
+              position: absolute;
+              width: 36px;
+              height: 36px;
+              top: 0;
+              left: 0;
+              bottom: 0;
+              right: 0;
+              margin: auto;
+              background: url('../../../public/assets/auth/boy.svg') no-repeat center;
+            }
+
+            &:last-child {
+              right: 0;
+            }
+          }
+        }
+        &:last-child {
+          input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+          }
+          span {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 70px;
+            max-width: 100%;
+            width: 195px;
+            box-shadow: 0px 20px 30px rgba(179, 34, 31, 0.2);
+            border-radius: 500px;
+
+            @media (max-width: 525px) {
+              max-width: 160px;
+              width: 100%;
+            }
+
+            &::before {
+              content: '';
+              position: absolute;
+              inset: 0;
+              border-radius: 50px;
+              padding: 2px;
+              background: linear-gradient(90deg, #ee0979 0%, #ff6a00 100%);
+              -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+              -webkit-mask-composite: xor;
+              mask-composite: exclude;
+              pointer-events: none;
+            }
+
+            &.active {
+              background: linear-gradient(90deg, #ee0979 0%, #ff6a00 100%);
+            }
+
+            &::after {
+              content: '';
+              position: absolute;
+              width: 36px;
+              height: 36px;
+              top: 0;
+              left: 0;
+              bottom: 0;
+              right: 0;
+              margin: auto;
+              background: url('../../../public/assets/auth/woman.svg') no-repeat center;
+            }
+
+            &:last-child {
+              right: 0;
+            }
+          }
+        }
+      }
+    }
+    .input {
+      max-width: 100%;
+      width: 100%;
+      margin: 0 auto;
+      margin-bottom: 10px;
+      position: relative;
+      input {
+        padding: 23px 30px 23px 70px;
+      }
+      img {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        left: 30px;
+        top: 23px;
+      }
+
+      .register__content-from__show {
+        cursor: pointer;
+        position: absolute;
+        top: 23px;
+        right: 30px;
+        width: 20px;
+        height: 20px;
+
+        img {
+          position: relative;
+          left: 0;
+          top: 0px;
+          right: 0px;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+}

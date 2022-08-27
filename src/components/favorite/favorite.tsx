@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { toast, ToastContainer } from 'react-toastify';
 
 import { Card } from '..';
 import { removeFavorite } from '../../redux/reducer/favorite';
@@ -12,6 +13,7 @@ export const Favorite = () => {
 
   const onClickRemoveFavorite = (id: number) => {
     dispatch(removeFavorite({ id }));
+    toast.success('Успішно видалив', { theme: 'dark' });
   };
 
   return (
@@ -29,6 +31,17 @@ export const Favorite = () => {
           ))}
         </div>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 };
