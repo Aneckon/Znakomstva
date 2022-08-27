@@ -8,7 +8,7 @@ export const Card = () => {
   const navigate = useNavigate();
 
   const onNavigateUser = (name: string) => {
-    navigate(`/user/${name}`);
+    navigate(`/profile/${name}`);
   };
 
   return (

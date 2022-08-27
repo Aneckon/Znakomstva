@@ -1,12 +1,19 @@
 import React from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 
-import { Login, Header, Profile, Footer, Main, Advices, AboutUs, NetworkError } from './components';
+import {
+  Login,
+  Header,
+  Profile,
+  Footer,
+  Main,
+  Advices,
+  AboutUs,
+  NetworkError,
+  UserProfile,
+} from './components';
 
 export const App = () => {
-  const location = useLocation();
-  console.log(location);
-
   return (
     <div className="app">
       <Header />
@@ -14,6 +21,7 @@ export const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Main />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/:id" element={<UserProfile />} />
 
         <Route path="/advices" element={<Advices />} />
         <Route path="/about" element={<AboutUs />} />

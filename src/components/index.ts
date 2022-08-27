@@ -1,7 +1,7 @@
 export * from './login';
 export * from './advices';
 export * from './aboutUs';
-export * from './networkError'
+export * from './networkError';
 
 export * from './header';
 export * from './button';
@@ -13,6 +13,7 @@ export * from './card';
 export * from './profile';
 export * from './profilePhoto';
 export * from './profileForm';
+export * from './userProfile';
 
 export * from './main';
 export * from './swiper';

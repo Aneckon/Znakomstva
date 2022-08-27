@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 
 import { profilePhoto } from '..';
 
@@ -8,6 +9,7 @@ import { setPhoto } from '../../redux/reducer/photo';
 import './profilePhoto.scss';
 
 export const ProfilePhoto = () => {
+  const location = useLocation();
   const dispatch = useDispatch();
   const photoImages = useSelector((state: any) => state.photoReducer.photoList);
 
@@ -30,14 +32,24 @@ export const ProfilePhoto = () => {
 
   return (
     <div className="profile__photo">
-      {profilePhoto.map((item) => (
-        <div key={item.id} className="profile__photo-item">
-          <label htmlFor={item.name}>
-            <input id={item.name} type="file" onChange={(e) => onChangeAddPhoto(e, item.id)} />
-          </label>
-          <ProfilePhotoImage id={item.id} />
-        </div>
-      ))}
+      {location.pathname === '/profile' ? (
+        profilePhoto.map((item) => (
+          <div key={item.id} className="profile__photo-item">
+            <label htmlFor={item.name}>
+              <input id={item.name} type="file" onChange={(e) => onChangeAddPhoto(e, item.id)} />
+            </label>
+            <ProfilePhotoImage id={item.id} />
+          </div>
+        ))
+      ) : photoImages.length > 0 ? (
+        photoImages.map((item: any) => (
+          <div key={item.id} className="profile__photo-item">
+            <img src={item.img} alt="" />
+          </div>
+        ))
+      ) : (
+        <div className="profile__photo-item">не має фотографії</div>
+      )}
     </div>
   );
 };
