@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import { Login, Header, Profile, Footer } from './components';
+import { Login, Header, Profile, Footer, Main } from './components';
 
 export const App = () => {
   return (
@@ -9,6 +9,7 @@ export const App = () => {
       <Header />
       <Routes>
         <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Main />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
       <Footer />

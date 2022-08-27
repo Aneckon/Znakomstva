@@ -1,5 +1,3 @@
-import user from '../../public/assets/navbar/user.svg';
-
 export const headerNav = [
   {
     id: 1,
@@ -71,5 +69,26 @@ export const profilePhoto = [
   {
     id: 4,
     name: 'inputFileFour',
+  },
+];
+
+export const MainSwiper = [
+  {
+    id: 1,
+  },
+  {
+    id: 2,
+  },
+  {
+    id: 3,
+  },
+  {
+    id: 4,
+  },
+  {
+    id: 5,
+  },
+  {
+    id: 6,
   },
 ];

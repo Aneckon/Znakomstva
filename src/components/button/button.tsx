@@ -4,7 +4,7 @@ import './button.scss';
 
 interface ButtonProps {
   className: string;
-  children: string;
+  children: string | any;
 }
 
 export const Button: FC<ButtonProps> = ({ className, children }) => {
