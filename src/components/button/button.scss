@@ -105,7 +105,30 @@
       margin-left: 0;
     }
   }
+  &__network {
+    width: 230px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 35px;
 
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+    color: #ffffff;
+
+    border: 1px solid #ffffff;
+    border-radius: 500px;
+
+    img{
+      width: 18px;
+      height: 18px;
+      margin-right: 10px;
+    }
+  }
   @media (max-width: 1200px) {
     width: 202px;
     height: 56px;

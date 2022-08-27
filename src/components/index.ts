@@ -1,6 +1,7 @@
 export * from './login';
 export * from './advices';
 export * from './aboutUs';
+export * from './networkError'
 
 export * from './header';
 export * from './button';
