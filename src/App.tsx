@@ -11,6 +11,7 @@ import {
   AboutUs,
   NetworkError,
   UserProfile,
+  Favorite,
 } from './components';
 
 export const App = () => {
@@ -20,6 +21,9 @@ export const App = () => {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Main />} />
+
+        <Route path="/favorites" element={<Favorite />} />
+
         <Route path="/profile" element={<Profile />} />
         <Route path="/profile/:id" element={<UserProfile />} />
 
