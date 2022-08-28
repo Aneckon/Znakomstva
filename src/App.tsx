@@ -13,6 +13,8 @@ import {
   UserProfile,
   Favorite,
   Register,
+  Chat,
+  ChatMessages,
 } from './components';
 
 export const App = () => {
@@ -26,6 +28,9 @@ export const App = () => {
         <Route path="/register" element={<Register />} />
 
         <Route path="/favorites" element={<Favorite />} />
+        <Route path="/chat" element={<Chat />}>
+          <Route path=":id" element={<ChatMessages />} />
+        </Route>
 
         <Route path="/profile" element={<Profile />} />
         <Route path="/profile/:id" element={<UserProfile />} />

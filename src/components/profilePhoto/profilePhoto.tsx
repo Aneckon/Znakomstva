@@ -5,8 +5,8 @@ import { toast, ToastContainer } from 'react-toastify';
 
 import { profilePhoto } from '..';
 
-import { addFavorite } from '../../redux/reducer/favorite';
-import { addPhoto } from '../../redux/reducer/photo';
+import { addFavorite } from '../../redux/slice/favorite';
+import { addPhoto } from '../../redux/slice/photo';
 
 import './profilePhoto.scss';
 

@@ -7,7 +7,7 @@ export const headerNav = [
   {
     id: 2,
     name: 'Повідомлення',
-    link: '/messages',
+    link: '/chat',
   },
   {
     id: 3,

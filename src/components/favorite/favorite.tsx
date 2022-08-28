@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toast, ToastContainer } from 'react-toastify';
 
 import { Card } from '..';
-import { removeFavorite } from '../../redux/reducer/favorite';
+import { removeFavorite } from '../../redux/slice/favorite';
 
 import './favorite.scss';
 

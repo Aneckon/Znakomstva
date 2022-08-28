@@ -1,10 +1,11 @@
 /* Page */
 export * from './login';
-export * from './register'
+export * from './register';
 
 export * from './profile';
 export * from './main';
 export * from './favorite';
+export * from './chat';
 
 export * from './advices';
 export * from './aboutUs';
@@ -22,6 +23,9 @@ export * from './topDating';
 export * from './profilePhoto';
 export * from './profileForm';
 export * from './userProfile';
+export * from './chatUser';
+export * from './chatMessages';
+export * from './message';
 
 /* MokApi */
 export * from './mokApi';

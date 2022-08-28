@@ -9,6 +9,7 @@ interface InputProps {
   type: string;
   className: string;
   children?: any;
+  onKeyEnter?: any;
 }
 
 export const Input: FC<InputProps> = ({
@@ -18,16 +19,12 @@ export const Input: FC<InputProps> = ({
   onChange,
   placeholder,
   type,
+  onKeyEnter
 }) => {
   return (
     <div className={className}>
       {children}
-      <input
-        type={type}
-        placeholder={placeholder}
-        value={value}
-        onChange={onChange}
-      />
+      <input onKeyDown={onKeyEnter} type={type} placeholder={placeholder} value={value} onChange={onChange} />
     </div>
   );
 };

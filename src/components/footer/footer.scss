@@ -103,6 +103,9 @@
         padding: 0 10px;
       }
     }
+    @media (max-width: 425px){
+      margin-bottom: 10px;
+    }
   }
   &__copyright {
     font-style: normal;
