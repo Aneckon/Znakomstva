@@ -20,7 +20,7 @@ export const Card: FC<CardProps> = ({ name, age, img }) => {
   return (
     <div className="card" onClick={() => onNavigateUser('віктор')}>
       <img src={img?.length ? img : '/assets/card/photo.png'} alt="" />
-      <div className="card__content">
+      <div className="card__content" onClick={(e) => e.stopPropagation()}>
         <p>
           {name?.length ? name : 'Віктор'} <span>{name?.length ? age : 22}</span>
         </p>

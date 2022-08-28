@@ -72,9 +72,15 @@
       }
     }
     &__checkbox {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      max-width: 380px;
+      width: 100%;
+
+      @media (max-width: 1200px) {
+        max-width: 320px;
+      }
+      @media (max-width: 1024px) {
+        max-width: 100%;
+      }
     }
   }
 }
