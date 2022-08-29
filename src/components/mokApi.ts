@@ -16,19 +16,6 @@ export const headerNav = [
   },
 ];
 
-export const headerIcon = [
-  {
-    id: 1,
-    icon: '/assets/header/search.svg',
-    link: 'search',
-  },
-  {
-    id: 2,
-    icon: '/assets/header/bell.svg',
-    link: 'bell',
-  },
-];
-
 export const navbarNav = [
   {
     id: 1,

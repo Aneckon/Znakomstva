@@ -26,6 +26,7 @@ export * from './userProfile';
 export * from './chatUser';
 export * from './chatMessages';
 export * from './message';
+export * from './notification';
 
 /* MokApi */
 export * from './mokApi';

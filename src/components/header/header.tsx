@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { useLocation, NavLink } from 'react-router-dom';
 
-import { Button, headerNav, headerIcon } from '..';
+import { Button, headerNav, Notification } from '..';
 
 import './header.scss';
 
 export const Header = () => {
   const [menu, setMenu] = useState(false);
+  const [notificationMenu, setNotificationMenu] = useState(false);
 
   const location = useLocation();
   const locationLogin = '/login';
@@ -45,13 +46,21 @@ export const Header = () => {
                 ))}
               </ul>
               <ul className="header__content-list__icon">
-                {headerIcon.map((item) => (
-                  <li key={item.id}>
-                    <NavLink to={item.link}>
-                      <img className="header__content-item__icon" src={item.icon} alt="" />
-                    </NavLink>
-                  </li>
-                ))}
+                <li>
+                  <NavLink onClick={() => console.log()} to="/search">
+                    <img
+                      className="header__content-item__icon"
+                      src="/assets/header/search.svg"
+                      alt=""
+                    />
+                  </NavLink>
+                </li>
+                <li>
+                  <div onClick={() => setNotificationMenu(!notificationMenu)}>
+                    <img className="header__content-item__icon" src="/assets/header/bell.svg" alt="" />
+                  </div>
+                </li>
+                <Notification notificationMenu={notificationMenu} />
                 <li className="header__content-user">
                   <NavLink to="/profile">
                     <img src="/assets/header/user.png" alt="" />

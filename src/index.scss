@@ -157,7 +157,11 @@ table {
   padding: 0 20px;
   margin: 0 auto;
 }
-
+.swiper-slide{
+  .card{
+    height: auto;
+  }
+}
 .Toastify__toast-theme--dark {
   background: #1b0522 !important;
 }
