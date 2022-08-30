@@ -6,6 +6,7 @@ export * from './profile';
 export * from './main';
 export * from './favorite';
 export * from './chat';
+export * from './search';
 
 export * from './advices';
 export * from './aboutUs';
