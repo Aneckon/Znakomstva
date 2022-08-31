@@ -7,6 +7,7 @@ import { profilePhoto } from '..';
 
 import { addFavorite } from '../../redux/slice/favorite';
 import { addPhoto } from '../../redux/slice/photo';
+import { addSelected } from '../../redux/slice/selected';
 
 import './profilePhoto.scss';
 
@@ -19,8 +20,12 @@ export const ProfilePhoto: FC<ProfilePhotoProps> = ({ userName, userAre }) => {
   const location = useLocation();
   const dispatch = useDispatch();
   const photoImages = useSelector((state: any) => state.photoReducer.photoList);
+
   const favoriteImages = useSelector((state: any) => state.favoriteReducer.favoriteList);
   const favoriteItem = favoriteImages.some((item: any) => item.userName === userName);
+
+  const selectedImages = useSelector((state: any) => state.selectedReducer.selectedList);
+  const selectedItem = selectedImages.some((item: any) => item.userName === userName);
 
   const onChangeAddPhoto = (e: any, id: number) => {
     if (e.target.files.length) {
@@ -31,7 +36,13 @@ export const ProfilePhoto: FC<ProfilePhotoProps> = ({ userName, userAre }) => {
   const onClickAddFavorite = (img: string, id: number) => {
     if (!favoriteItem) {
       dispatch(addFavorite({ img, userAre, userName, id }));
-      toast.success('Успішно добавив', { theme: 'dark' });
+      toast.success('Успішно добавив в улюблені', { theme: 'dark' });
+    }
+  };
+  const onClickAddSelected = (img: string, id: number) => {
+    if (!selectedItem) {
+      dispatch(addSelected({ img, userAre, userName, id }));
+      toast.success('Успішно добавив в вибрані', { theme: 'dark' });
     }
   };
 
@@ -59,16 +70,24 @@ export const ProfilePhoto: FC<ProfilePhotoProps> = ({ userName, userAre }) => {
         ))
       ) : photoImages.length > 0 ? (
         photoImages.map((item: any) => (
-          <div
-            key={item.id}
-            className="profile__photo-item"
-            onClick={() => onClickAddFavorite(item.img, item.id)}>
+          <div key={item.id} className="profile__photo-item">
             <img src={item.img} alt="" />
-            <div className="profile__photo-item__favorite">
+            <div
+              onClick={() => onClickAddFavorite(item.img, item.id)}
+              className="profile__photo-item__favorite">
               <img src="/assets/profile/favorite.svg" alt="" />
             </div>
-            <div className="profile__photo-item__selected">
-              <img src="/assets/profile/selected.svg" alt="" />
+            <div
+              onClick={() => onClickAddSelected(item.img, item.id)}
+              className="profile__photo-item__selected">
+              <img
+                src={
+                  !selectedItem
+                    ? '/assets/profile/selected.svg'
+                    : '/assets/profile/selected-active.svg'
+                }
+                alt=""
+              />
             </div>
           </div>
         ))

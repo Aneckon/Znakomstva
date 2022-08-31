@@ -26,8 +26,8 @@ export const navbarNav = [
   },
   {
     id: 2,
-    name: 'Вибране',
-    link: '/selected',
+    name: 'Вибрані',
+    link: '/profile/selected',
     icon: '/assets/navbar/bookmark.svg',
     iconActive: '/assets/navbar/bookmark-active.svg',
   },

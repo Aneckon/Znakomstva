@@ -17,6 +17,7 @@ import {
   ChatMessages,
   Search,
   Setting,
+  Selected,
 } from './components';
 
 export const App = () => {
@@ -37,6 +38,7 @@ export const App = () => {
 
         <Route path="/profile" element={<Profile />}>
           <Route path="/profile/setting" element={<Setting />} />
+          <Route path="/profile/selected" element={<Selected />} />
         </Route>
         <Route path="/profile/:id" element={<UserProfile />} />
 

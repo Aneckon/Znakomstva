@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { Navbar, ProfileForm, ProfilePhoto, Setting } from '..';
+import { Navbar, ProfileForm, ProfilePhoto, Setting, Selected } from '..';
 
 import './profile.scss';
 
@@ -28,6 +28,14 @@ export const Profile = () => {
               <div className="profile__content-wraper">
                 <ProfilePhoto />
                 <ProfileForm />
+              </div>
+            </div>
+          )}
+          {location.pathname === '/profile/selected' && (
+            <div className="profile__content">
+              <h2>Вибрані</h2>
+              <div className="profile__content-wraper">
+                <Selected />
               </div>
             </div>
           )}
