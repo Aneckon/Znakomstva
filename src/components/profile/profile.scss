@@ -1,8 +1,9 @@
 .profile {
   margin-top: 30px;
   width: 100%;
-  
-  @media (max-width: 824px){
+  min-height: 70vh;
+
+  @media (max-width: 824px) {
     margin-top: 20px;
   }
   &__wrraper {
@@ -16,7 +17,7 @@
     width: 100%;
     z-index: 1;
 
-    &-menu{
+    &-menu {
       display: none;
     }
 
@@ -34,7 +35,7 @@
       align-items: center;
       justify-content: center;
 
-      .block{
+      .block {
         display: none;
       }
 

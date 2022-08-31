@@ -35,20 +35,6 @@
       transition: 0.3s;
     }
 
-    .active {
-      &::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        height: 100%;
-        width: 2px;
-        background: linear-gradient(90deg, #ee0979 0%, #ff6a00 100%);
-        transition: 0.3s;
-      }
-    }
-
     &:hover::before {
       height: 100%;
     }

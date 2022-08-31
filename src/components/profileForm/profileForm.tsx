@@ -125,29 +125,6 @@ export const ProfileForm = () => {
           />
         </div>
       </div>
-      <div className="profile__content-form__item">
-        <p>Аккаунт</p>
-        <div className="profile__content-form__items">
-          <p>E-mail</p>
-          <Input
-            className="input input__profile"
-            type="text"
-            placeholder="Введите e-mail"
-            value=""
-            onChange={() => console.log()}
-          />
-        </div>
-        <div className="profile__content-form__items">
-          <p>Пароль</p>
-          <Input
-            className="input input__profile"
-            type="text"
-            placeholder="Введите пароль"
-            value=""
-            onChange={() => console.log()}
-          />
-        </div>
-      </div>
       <Button className="button">Зберегти</Button>
     </form>
   );

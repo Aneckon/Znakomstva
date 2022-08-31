@@ -17,7 +17,7 @@ export const Navbar: FC<NavbarProps> = ({ navbarOpen }) => {
       <ul>
         {navbarNav.map((item) => (
           <li key={item.id}>
-            <NavLink to={item.link}>
+            <NavLink className={item.name === location.pathname ? 'active' : ''} to={item.link}>
               <img src={item.link === location.pathname ? item.iconActive : item.icon} alt="" />{' '}
               {item.name}
             </NavLink>

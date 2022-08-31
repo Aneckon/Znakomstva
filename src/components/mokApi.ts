@@ -33,6 +33,13 @@ export const navbarNav = [
   },
   {
     id: 3,
+    name: 'Налаштування',
+    link: '/profile/setting',
+    icon: '/assets/navbar/setting.svg',
+    iconActive: '/assets/navbar/setting-active.svg',
+  },
+  {
+    id: 4,
     name: 'Вихід',
     link: '/exit',
     icon: '/assets/navbar/logout.svg',

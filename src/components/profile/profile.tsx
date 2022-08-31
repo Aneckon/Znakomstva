@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
-import { Navbar, ProfileForm, ProfilePhoto } from '..';
+import { Navbar, ProfileForm, ProfilePhoto, Setting } from '..';
 
 import './profile.scss';
 
 export const Profile = () => {
+  const location = useLocation();
   const [navbarOpen, setNavbarOpen] = useState(false);
 
   return (
@@ -20,13 +22,23 @@ export const Profile = () => {
               />
             </div>
           </div>
-          <div className="profile__content">
-            <h2>Профиль</h2>
-            <div className="profile__content-wraper">
-              <ProfilePhoto />
-              <ProfileForm />
+          {location.pathname === '/profile' && (
+            <div className="profile__content">
+              <h2>Профиль</h2>
+              <div className="profile__content-wraper">
+                <ProfilePhoto />
+                <ProfileForm />
+              </div>
             </div>
-          </div>
+          )}
+          {location.pathname === '/profile/setting' && (
+            <div className="profile__content">
+              <h2>Настройки</h2>
+              <div className="profile__content-wraper">
+                <Setting />
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
