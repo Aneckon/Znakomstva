@@ -2,7 +2,7 @@
   width: 100%;
   &__wrraper {
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     justify-content: space-between;
 
     @media (max-width: 495px) {

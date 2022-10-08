@@ -8,7 +8,7 @@
   }
   &__wrraper {
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     justify-content: space-between;
     margin-bottom: 50px;
   }
@@ -97,7 +97,7 @@
 
     &-wraper {
       display: flex;
-      align-items: start;
+      align-items: flex-start;
       justify-content: space-between;
 
       @media (max-width: 495px) {
