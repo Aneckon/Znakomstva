@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Cookies } from 'react-cookie';
+import { useNavigate } from 'react-router-dom';
 
 import { ProfilePhoto, Button } from '..';
 
 import './userProfile.scss';
 
 export const UserProfile = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const cookies = new Cookies();
+    if (!cookies.get('Token')) {
+      navigate('/register');
+    }
+  }, [navigate]);
+
   return (
     <div className="userProfile">
       <div className="container">

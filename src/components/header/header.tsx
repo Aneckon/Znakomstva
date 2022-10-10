@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
+import { Cookies } from 'react-cookie';
 import { useLocation, NavLink } from 'react-router-dom';
 
-import { Button, headerNav, Notification } from '..';
+import { headerNav, Notification } from '..';
 
 import './header.scss';
 
 export const Header = () => {
   const [menu, setMenu] = useState(false);
   const [notificationMenu, setNotificationMenu] = useState(false);
+  const cookies = new Cookies();
 
   const location = useLocation();
   const locationLogin = '/login';
@@ -33,7 +35,9 @@ export const Header = () => {
               <p>Znakomstva.ua</p>
             </NavLink>
           </div>
-          {location.pathname !== locationRegister && location.pathname !== locationLogin ? (
+          {cookies.get('Token') &&
+          location.pathname !== locationRegister &&
+          location.pathname !== locationLogin ? (
             <nav className="header__content-main">
               <ul
                 className={
@@ -57,7 +61,11 @@ export const Header = () => {
                 </li>
                 <li>
                   <div onClick={() => setNotificationMenu(!notificationMenu)}>
-                    <img className="header__content-item__icon" src="/assets/header/bell.svg" alt="" />
+                    <img
+                      className="header__content-item__icon"
+                      src="/assets/header/bell.svg"
+                      alt=""
+                    />
                   </div>
                 </li>
                 <Notification notificationMenu={notificationMenu} />
@@ -82,9 +90,11 @@ export const Header = () => {
               <p>
                 {location.pathname === locationLogin ? 'Вперше тут?' : 'Вже є обліковий запис?'}
               </p>
-              <Button className="header__content-btn">
-                {location.pathname === locationLogin ? 'Увійти' : 'Реєстрація'}
-              </Button>
+              <NavLink
+                className="header__content-btn"
+                to={location.pathname === locationLogin ? '/register' : '/login'}>
+                {location.pathname === locationLogin ? 'Реєстрація' : 'Увійти'}
+              </NavLink>
             </div>
           )}
         </div>

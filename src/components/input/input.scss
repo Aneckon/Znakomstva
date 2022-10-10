@@ -22,6 +22,12 @@
     }
   }
 
+  &__errors {
+    input {
+      box-shadow: inset 0px -2px 0px #a01414;
+    }
+  }
+
   input {
     width: 100%;
     height: 100%;

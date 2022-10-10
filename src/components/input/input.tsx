@@ -19,12 +19,18 @@ export const Input: FC<InputProps> = ({
   onChange,
   placeholder,
   type,
-  onKeyEnter
+  onKeyEnter,
 }) => {
   return (
     <div className={className}>
       {children}
-      <input onKeyDown={onKeyEnter} type={type} placeholder={placeholder} value={value} onChange={onChange} />
+      <input
+        onKeyDown={onKeyEnter}
+        type={type}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+      />
     </div>
   );
 };

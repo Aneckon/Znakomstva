@@ -1,19 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
-import { Input, Button } from '..';
+import { Button } from '..';
+import { useSetLoginMutation } from '../../redux/services';
+import { setToken } from '../../redux/slice/auth';
 
 import './login.scss';
 
-export const Login = () => {
-  const [passwordShow, setPasswordShow] = useState(true);
+type FormValues = {
+  email: string;
+  password: string;
+};
 
+export const Login = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormValues>();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [loginClick, {data: loginUser}] = useSetLoginMutation()
+
+  const [passwordShow, setPasswordShow] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const onClickSubmit = (e: { preventDefault: () => void }) => {
-    e.preventDefault();
-    console.log(email, password);
-  };
+  const onClickSubmit = handleSubmit((data: any) => {
+    loginClick(data);
+  });
+
+  useEffect(() => {
+    if (loginUser && loginUser.refreshToken) {
+      dispatch(setToken(loginUser.refreshToken));
+      navigate('/');
+    }
+  }, [dispatch, navigate, loginUser]);
+  
 
   return (
     <div className="login">
@@ -28,22 +53,33 @@ export const Login = () => {
           </div>
           <form onSubmit={onClickSubmit} className="login__content-from">
             <div className="login__content-from__input">
-              <Input
-                className="input input__auth"
-                placeholder="Введіть електронну пошту"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                type={'text'}>
+              <div
+                className={errors.email ? 'input input__auth input__errors' : 'input input__auth'}>
+                <input
+                  {...register('email', {
+                    required: true,
+                    pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
+                  })}
+                  placeholder="Введіть електронну пошту"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  type={'text'}
+                />
                 <img src="/assets/auth/message.svg" alt="" />
-              </Input>
+              </div>
             </div>
             <div className="login__content-from__input">
-              <Input
-                className="input input__auth"
-                placeholder="Введіть пароль"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                type={passwordShow ? 'password' : 'text'}>
+              <div
+                className={
+                  errors.password ? 'input input__auth input__errors' : 'input input__auth'
+                }>
+                <input
+                  {...register('password', { required: true })}
+                  placeholder="Введіть пароль"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  type={passwordShow ? 'password' : 'text'}
+                />
                 <img src="/assets/auth/password.svg" alt="" />
                 <div
                   onClick={() => setPasswordShow(!passwordShow)}
@@ -53,7 +89,7 @@ export const Login = () => {
                     alt=""
                   />
                 </div>
-              </Input>
+              </div>
             </div>
             <Button className="button__auth">Войти</Button>
           </form>

@@ -38,13 +38,6 @@ export const navbarNav = [
     icon: '/assets/navbar/setting.svg',
     iconActive: '/assets/navbar/setting-active.svg',
   },
-  {
-    id: 4,
-    name: 'Вихід',
-    link: '/exit',
-    icon: '/assets/navbar/logout.svg',
-    iconActive: '/assets/navbar/logout-active.svg',
-  },
 ];
 
 export const profilePhoto = [

@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Cookies } from 'react-cookie';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 
 import { Card } from '..';
@@ -10,6 +12,14 @@ import './favorite.scss';
 export const Favorite = () => {
   const dispatch = useDispatch();
   const favoriteImages = useSelector((state: any) => state.favoriteReducer.favoriteList);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const cookies = new Cookies();
+    if (!cookies.get('Token')) {
+      navigate('/register');
+    }
+  }, [navigate]);
 
   const onClickRemoveFavorite = (id: number) => {
     dispatch(removeFavorite({ id }));

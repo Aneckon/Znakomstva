@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Cookies } from 'react-cookie';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import { Navbar, ProfileForm, ProfilePhoto, Setting, Selected } from '..';
 
@@ -7,7 +8,16 @@ import './profile.scss';
 
 export const Profile = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+
   const [navbarOpen, setNavbarOpen] = useState(false);
+
+  useEffect(() => {
+    const cookies = new Cookies();
+    if (!cookies.get('Token')) {
+      navigate('/register');
+    }
+  }, [navigate]);
 
   return (
     <div className="profile" onClick={() => setNavbarOpen(false)}>
