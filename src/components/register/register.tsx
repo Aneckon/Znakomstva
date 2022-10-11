@@ -25,7 +25,7 @@ export const Register = () => {
   const navigate = useNavigate();
   const [passwordShow, setPasswordShow] = useState(true);
   const dispatch = useDispatch();
-  const [registerClick, { data: registerUser }] = useSetRegisterMutation();
+  const [registerClick, { data: registerUser, error }] = useSetRegisterMutation<any>();
 
   const [name, setName] = useState('');
   const [data, setData] = useState('');
@@ -53,6 +53,7 @@ export const Register = () => {
             <p>Присоединяйся к сообществу из 518 млн человек!</p>
           </div>
           <p className="register__error">{registerUser && registerUser.error}</p>
+          <p className='login__error'>{error ? error.error : ""}</p>
           <form onSubmit={onClickSubmit} className="register__content-from">
             <div className="register__content-from__input">
               <div

@@ -22,7 +22,8 @@ export const Login = () => {
   } = useForm<FormValues>();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [loginClick, {data: loginUser}] = useSetLoginMutation()
+  const [loginClick, { data: loginUser, error }] = useSetLoginMutation<any>();
+  console.log(error);
 
   const [passwordShow, setPasswordShow] = useState(true);
   const [email, setEmail] = useState('');
@@ -38,7 +39,6 @@ export const Login = () => {
       navigate('/');
     }
   }, [dispatch, navigate, loginUser]);
-  
 
   return (
     <div className="login">
@@ -51,6 +51,8 @@ export const Login = () => {
               необходимость системы обучения кадров, соответствующей насущным потребностям.
             </p>
           </div>
+          <p className='login__error'>{error ? error.error : ""}</p>
+          <p className="login__error">{loginUser && loginUser.error}</p>
           <form onSubmit={onClickSubmit} className="login__content-from">
             <div className="login__content-from__input">
               <div
